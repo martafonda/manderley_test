@@ -13,4 +13,7 @@ Manderley::Application.routes.draw do
   get "search/new", to: "search#new", as: :new
   post "search", to: "search#create", as: :create
   get "search/show", to:  "search#show", as: :show
+
+  get "users", to: 'users#index'
+  get "users/:id", to: "users#show"
 end

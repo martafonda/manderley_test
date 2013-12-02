@@ -1,5 +1,6 @@
 class Movie < ActiveRecord::Base
-
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
   class << self
     def role_relation role
       has_many role.pluralize.to_sym, -> { where(casts: {role: role})} , through: :casts, source: :person 
