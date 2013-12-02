@@ -6,11 +6,16 @@ class Movie < ActiveRecord::Base
       has_many role.pluralize.to_sym, -> { where(casts: {role: role})} , through: :casts, source: :person 
     end
   end
-
+  serialize :categories
   has_many :comments , dependent: :destroy
   has_many :casts, dependent: :destroy
   accepts_nested_attributes_for :casts, allow_destroy: true, reject_if: :all_blank
   has_many :people, through: :casts
+
+  CATEGORIES = ["Action", "Drama", "Comedy", "Horror"]
+  def reject_categories
+    self.categories = self.categories.find_all{|x| x.present?}
+  end
 
   role_relation 'director'
   role_relation 'actor'
