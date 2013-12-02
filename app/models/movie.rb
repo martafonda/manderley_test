@@ -20,7 +20,7 @@ class Movie < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :title, :year, :duration
-
+  scope :directed_by, ->(person) { joins(:casts).where(casts: {role: :director, person_id: person.id}) }
   scope :short, -> { where('duration < ?', 60) }
   scope :longer_that, ->(duration) {  where('duration > ?',duration) }
   scope :medium, -> { longer_that 60 }
