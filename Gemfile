@@ -14,7 +14,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'friendly_id', '~> 5.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+#Simple_form
 gem 'simple_form'
+#Rolify
+gem "rolify"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 

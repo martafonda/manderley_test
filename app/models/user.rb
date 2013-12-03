@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  rolify
+
   extend FriendlyId
   friendly_id :email_for_slug, :use => :slugged
 
@@ -8,4 +10,17 @@ class User < ActiveRecord::Base
   
   devise :database_authenticatable, :registerable, :recoverable
   has_many :movies
+
+  def admin
+    self.has_role? :admin
+  end
+  alias_method :admin?, :admin
+
+  def admin= value
+    if value == "1"
+      self.add_role :admin
+    else
+      self.remove_role :admin
+    end
+  end
 end

@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+
+<%= simple_form_for(@user) do |f| %>
+  <%= f.input :admin, as: :boolean %><br>
+  <%= f.button :submit %>
+<% end %>
+
+<% else %>
+<div class="bck dark">
+  <p class="white">
+    You must be logged in to add or edit a movie
+  </p>
+</div>
+<% end %>
