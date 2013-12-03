@@ -15,6 +15,8 @@ gem 'friendly_id', '~> 5.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+#Authority
+gem 'authority'
 #Simple_form
 gem 'simple_form'
 #Rolify

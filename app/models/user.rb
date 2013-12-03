@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
+  include Authority::Abilities
+  include Authority::UserAbilities
   rolify
-
+  
   extend FriendlyId
   friendly_id :email_for_slug, :use => :slugged
 

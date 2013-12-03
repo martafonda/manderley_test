@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  rescue_from Authority::SecurityViolation, with: :redirect_to_root
+
   def index
     @users = User.all
   end
@@ -8,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    
+    authorize_action_for @user
   end
   def profile
     @user = current_user
@@ -16,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    authorize_action_for @user
     if @user.update(user_params)
       redirect_to @user
     else
@@ -29,5 +32,8 @@ class UsersController < ApplicationController
   end
   def user_params
     params.require(:user).permit(:admin, :email)
+  end
+  def redirect_to_root
+    redirect_to root_path, notice: 'Not allowed'
   end
 end
