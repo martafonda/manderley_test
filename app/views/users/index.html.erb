@@ -2,6 +2,11 @@
 
 <p>Email: </p>
 <% @users.each do |user| %>
-  <%= user.email %>
-
+  <div>
+  <%= user.email %><br>
+  <% if current_user == user && user_signed_in? || current_user.admin? %>
+      <%= link_to 'Edit', edit_user_path(user), class: 'button secondary' %>
+      <%= link_to 'Destroy', user_path(user), class: 'button secondary', method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+  </div>
 <% end %>

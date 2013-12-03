@@ -26,12 +26,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+    redirect_to @users
+  end
+
   private
   def set_user
     @user = User.friendly.find(params[:id])
   end
   def user_params
-    params.require(:user).permit(:admin, :email)
+    params.require(:user).permit(*:params_permited)
+  end
+  def params_permited
+    permit = [:email]
+    permit |= [:admin] if user.admin?
   end
   def redirect_to_root
     redirect_to root_path, notice: 'Not allowed'

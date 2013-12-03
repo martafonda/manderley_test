@@ -1,7 +1,7 @@
 Manderley::Application.routes.draw do
   root 'movies#index'
   devise_for :users
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
   get :profile, to: 'users#profile'
   resources :people
   resources :addresses
