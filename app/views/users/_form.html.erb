@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
 
 <%= simple_form_for(@user) do |f| %>
+  <%= f.input :email %><br>
   <%= f.input :admin, as: :boolean %><br>
   <%= f.button :submit %>
 <% end %>
