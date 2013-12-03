@@ -1,6 +1,11 @@
-<p>
+<div>
   <strong>Email:</strong>
-  <%= @user.email %>
-  <%= @user.has_role? :admin %>
-</p>
+  <%= @user.email %><br>
+  <strong>Rol:</strong>
+  <% if @user.has_role? :admin %>
+    Administrator
+  <% else %>
+    User
+  <% end %><br>
+</div>
 <%= link_to 'Edit User', edit_user_path(@user), class: 'button secondary' %> 

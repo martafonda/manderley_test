@@ -1,18 +1,21 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update]
   def index
     @users = User.all
   end
 
   def show
-    @user = User.friendly.find(params[:id])
   end
 
   def edit
-    @user = User.friendly.find(params[:id])
+    
+  end
+  def profile
+    @user = current_user
+    render 'show'
   end
 
   def update
-    @user = User.friendly.find(params[:id])
     if @user.update(user_params)
       redirect_to @user
     else
@@ -21,6 +24,9 @@ class UsersController < ApplicationController
   end
 
   private
+  def set_user
+    @user = User.friendly.find(params[:id])
+  end
   def user_params
     params.require(:user).permit(:admin, :email)
   end
