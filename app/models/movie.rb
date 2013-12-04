@@ -1,4 +1,5 @@
 class Movie < ActiveRecord::Base
+  paginates_per 21
   extend FriendlyId
   friendly_id :title, :use => :slugged
   class << self
@@ -6,7 +7,11 @@ class Movie < ActiveRecord::Base
       has_many role.pluralize.to_sym, -> { where(casts: {role: role})} , through: :casts, source: :person 
     end
   end
-  
+
+  def to_key
+    [slug]
+  end
+
   has_many :comments , dependent: :destroy
   has_many :casts, dependent: :destroy
   accepts_nested_attributes_for :casts, allow_destroy: true, reject_if: :all_blank

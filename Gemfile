@@ -14,7 +14,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'friendly_id', '~> 5.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
+#pagination
+gem 'kaminari'
 #Authority
 gem 'authority'
 #Simple_form

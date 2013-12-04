@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   def email_for_slug
     email.gsub('@', ' AT ').gsub('.', ' DOT ')
   end
-  
+
   devise :database_authenticatable, :registerable, :recoverable
   has_many :movies
 

@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   before_action :check_user, only: [:edit, :destroy]
 
   def index
-    @movies = Movie.all
+    @movies = Movie.all.page params[:page]
   end
 
   def show
@@ -51,7 +51,7 @@ class MoviesController < ApplicationController
     @movie.destroy
     respond_to do |format|
       format.html { redirect_to movies_url }
-      format.json { head :no_content }
+      format.js { render partial: 'destroy_animation', locals: { resource: @movie } }
     end
   end
 
