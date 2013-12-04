@@ -1,0 +1,15 @@
+<header class="bck light padding">
+  <div class="row">
+      <nav class="column_6">
+          <h2 class="text italic thin">Manderley</h2>
+      </nav>
+
+      <nav class="column_6  text right bold">
+          <% if user_signed_in? %>
+            <%= render partial: "menu_user_logged" %>
+          <% else %>
+            <%= render partial: "menu_user_not_logged" %>
+          <% end %>
+      </nav>
+  </div>
+</header>
