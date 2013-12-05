@@ -18,11 +18,12 @@ gem 'jquery-rails'
 gem 'kaminari'
 #Authority
 gem 'authority'
+#Carrierwave
+gem 'carrierwave'
 
 #Simple_form
 gem 'simple_form'
-#heroku
-gem 'rails_12factor', group: :production
+
 #Rolify
 gem "rolify"
 #Sidekiq
@@ -66,4 +67,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-ruby "2.0.0"
