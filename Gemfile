@@ -18,8 +18,7 @@ gem 'jquery-rails'
 gem 'kaminari'
 #Authority
 gem 'authority'
-# Gemfile
-gem "devise-async"
+
 #Simple_form
 gem 'simple_form'
 #heroku
