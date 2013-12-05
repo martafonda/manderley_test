@@ -42,4 +42,6 @@ class Movie < ActiveRecord::Base
   scope :nineties, -> { where('? < year < ?', 1989, 2000) }
   scope :modern, -> { where('year > ?', 2000) }
   scope :gorgeous, -> { self.modern.long }
+
 end
+

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     email.gsub('@', ' AT ').gsub('.', ' DOT ')
   end
 
-  devise :database_authenticatable, :registerable, :recoverable
+  devise :database_authenticatable, :registerable, :recoverable, :async
   has_many :movies
 
   def admin

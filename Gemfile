@@ -18,10 +18,16 @@ gem 'jquery-rails'
 gem 'kaminari'
 #Authority
 gem 'authority'
+# Gemfile
+gem "devise-async"
 #Simple_form
 gem 'simple_form'
+#heroku
+gem 'rails_12factor', group: :production
 #Rolify
 gem "rolify"
+#Sidekiq
+gem 'sidekiq'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
@@ -61,3 +67,4 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+ruby "2.0.0"
